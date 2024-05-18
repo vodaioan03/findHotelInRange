@@ -14,3 +14,5 @@ public interface HotelService {
   public Optional<Hotel> getHotelByName(String name) throws HotelCollectionException;
 
 }
+
+

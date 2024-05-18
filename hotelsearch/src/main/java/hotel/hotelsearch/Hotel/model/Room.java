@@ -14,7 +14,12 @@ public class Room {
     private int price;
     private boolean isAvailable;
 
-    
+    public boolean isAvailable() {
+      return isAvailable;
+    }
+    public void setAvailable(boolean isAvailable) {
+      this.isAvailable = isAvailable;
+    }
     public int getRoomNumber() {
       return roomNumber;
     }
@@ -32,12 +37,6 @@ public class Room {
     }
     public void setPrice(int price) {
       this.price = price;
-    }
-    public boolean isAvailable() {
-      return isAvailable;
-    }
-    public void setAvalible(boolean isAvailable) {
-      this.isAvailable = isAvailable;
     }
 
     

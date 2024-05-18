@@ -3,7 +3,6 @@ package hotel.hotelsearch.user.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,6 @@ public class UserController {
 
   @GetMapping("/getUser/{username}")
   public ResponseEntity<?> getUser(@PathVariable("username") String username) {
-    //TODO: add verify for jwt and username
     try {
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);
     } catch (UserException e) {
@@ -35,7 +33,6 @@ public class UserController {
 
   @PostMapping("/changeEmail/{username}")
   public ResponseEntity<?> changeEmail(@PathVariable("username") String username,@RequestBody String request) {
-    //TODO: add verify for jwt and username
     try {
       service.changeMail(username,request);
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);
@@ -46,7 +43,6 @@ public class UserController {
 
   @PostMapping("/changeNumber/{username}")
   public ResponseEntity<?> changeNumber(@PathVariable("username") String username,@RequestBody String request) {
-    //TODO: add verify for jwt and username
     try {
       service.changeNumber(username,request);
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);
@@ -57,7 +53,6 @@ public class UserController {
 
   @PostMapping("/changeFirstName/{username}")
   public ResponseEntity<?> changeFirstName(@PathVariable("username") String username,@RequestBody String request) {
-    //TODO: add verify for jwt and username
     try {
       service.changeFirstName(username,request);
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);
@@ -68,7 +63,6 @@ public class UserController {
 
   @PostMapping("/changeLastName/{username}")
   public ResponseEntity<?> changeLastName(@PathVariable("username") String username,@RequestBody String request) {
-    //TODO: add verify for jwt and username
     try {
       service.changeLastName(username,request);
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);
@@ -79,7 +73,6 @@ public class UserController {
 
   @PostMapping("/changePassword/{username}")
   public ResponseEntity<?> changePassword(@PathVariable("username") String username,@RequestBody String request) {
-    //TODO: add verify for jwt and username
     try {
       service.changePassword(username,request);
       return new ResponseEntity<myUser>(service.getUser(username),HttpStatus.OK);

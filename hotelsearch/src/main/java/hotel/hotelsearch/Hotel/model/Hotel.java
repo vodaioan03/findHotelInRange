@@ -3,18 +3,12 @@ package hotel.hotelsearch.Hotel.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-//FROM PROJECT
-import hotel.hotelsearch.Hotel.model.Review;
-import hotel.hotelsearch.Hotel.model.Room;
 
 
 @Document(value="hotel")
@@ -35,6 +29,19 @@ public class Hotel {
     System.err.println("Added review");
   }
 
+  public Room getRoomByNumber(int numberRoom) throws Exception {
+    for (Room room : rooms) {
+      if(room.getRoomNumber() == numberRoom) {
+        return room;
+      }
+    }
+    throw new Exception("Room not found!");
+  }
+
+  public void cancelReservation(int numberRoom) throws Exception {
+    Room room = this.getRoomByNumber(numberRoom);
+    room.setAvailable(true);
+  }
   public int getid() {
     return id;
   }

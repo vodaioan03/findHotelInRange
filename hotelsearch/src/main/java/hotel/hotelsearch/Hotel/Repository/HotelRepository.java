@@ -1,4 +1,4 @@
-package hotel.hotelsearch.Hotel;
+package hotel.hotelsearch.Hotel.Repository;
 
 import hotel.hotelsearch.Hotel.model.Hotel;
 
